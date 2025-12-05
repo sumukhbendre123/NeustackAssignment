@@ -2,6 +2,13 @@
 
 A full-stack e-commerce application with automatic discount code generation for every Nth order.
 
+## Demo Video
+
+
+https://github.com/user-attachments/assets/dc5880e6-e74a-41c1-bada-e910c5770491
+
+
+
 ## Features
 
 ### Customer Features
