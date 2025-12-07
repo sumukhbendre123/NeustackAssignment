@@ -3,12 +3,14 @@
 ## Backend Deployment (Render.com)
 
 ### Prerequisites
+
 - GitHub account
 - Render account (sign up at https://render.com)
 
 ### Steps:
 
 1. **Push your code to GitHub** (if not already done):
+
    ```bash
    git add .
    git commit -m "Add deployment configs"
@@ -16,6 +18,7 @@
    ```
 
 2. **Deploy on Render**:
+
    - Go to https://render.com and sign in
    - Click "New +" → "Web Service"
    - Connect your GitHub repository
@@ -36,6 +39,7 @@
 ## Frontend Deployment (Vercel)
 
 ### Prerequisites
+
 - GitHub account
 - Vercel account (sign up at https://vercel.com)
 
@@ -50,8 +54,8 @@
      - **Root Directory**: `ecommerce-frontend`
      - **Build Command**: `npm run build`
      - **Output Directory**: `.next`
-   
 2. **Add Environment Variable**:
+
    - In Vercel dashboard → Settings → Environment Variables
    - Add: `NEXT_PUBLIC_API_URL` = `YOUR_RENDER_BACKEND_URL`
    - (Replace with your actual Render backend URL)
@@ -66,11 +70,14 @@ Your frontend will be live at: `https://your-project.vercel.app`
 ## Alternative Free Hosting Options
 
 ### Backend Alternatives:
+
 1. **Railway** (https://railway.app)
+
    - 500 hours/month free
    - Connect GitHub → Deploy
 
 2. **Cyclic** (https://cyclic.sh)
+
    - Unlimited free apps
    - Connect GitHub → Deploy
 
@@ -79,7 +86,9 @@ Your frontend will be live at: `https://your-project.vercel.app`
    - Deploy via CLI
 
 ### Frontend Alternatives:
+
 1. **Netlify** (https://netlify.com)
+
    - Similar to Vercel
    - Connect GitHub → Deploy
 
@@ -94,10 +103,12 @@ Your frontend will be live at: `https://your-project.vercel.app`
 1. **CORS Configuration**: The backend is configured to accept requests from any origin. In production, you should update CORS to only allow your frontend domain.
 
 2. **Environment Variables**:
+
    - Backend: Set `PORT` environment variable (Render sets this automatically)
    - Frontend: Set `NEXT_PUBLIC_API_URL` to your backend URL
 
 3. **Database**: Currently using in-memory storage. Data resets on server restart. For production, consider:
+
    - MongoDB Atlas (free tier)
    - PostgreSQL on Render (free tier)
    - Supabase (free tier)
@@ -114,6 +125,7 @@ Your frontend will be live at: `https://your-project.vercel.app`
 ### After making changes:
 
 1. Push to GitHub:
+
    ```bash
    git add .
    git commit -m "Your changes"
@@ -127,16 +139,19 @@ Your frontend will be live at: `https://your-project.vercel.app`
 ## Troubleshooting
 
 ### Backend not responding:
+
 - Check Render logs in dashboard
 - Ensure start command is correct: `npm start`
 - Verify PORT environment variable
 
 ### Frontend can't connect to backend:
+
 - Check `NEXT_PUBLIC_API_URL` environment variable
 - Ensure backend URL is correct
 - Check browser console for CORS errors
 
 ### Build failures:
+
 - Check build logs in Render/Vercel dashboard
 - Ensure all dependencies are in `package.json`
 - Verify Node.js version compatibility
