@@ -23,13 +23,20 @@ export const validateDiscount = async (code, cartTotal) => {
             body: JSON.stringify({ code, cartTotal }),
         });
 
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('Backend API is not responding correctly.');
+        }
+
         const data = await response.json();
         return data;
     } catch (error) {
         console.error('Error validating discount:', error);
+        console.error('API_BASE_URL:', API_BASE_URL);
         return {
             valid: false,
-            message: 'Failed to validate discount code'
+            message: 'Failed to validate discount code. Please check if the backend is running.'
         };
     }
 };
@@ -50,6 +57,12 @@ export const checkout = async (items, discountCode = null) => {
             body: JSON.stringify({ items, discountCode }),
         });
 
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('Backend API is not responding correctly. Please ensure the backend is deployed and the API URL is correct.');
+        }
+
         const data = await response.json();
 
         if (!response.ok) {
@@ -59,9 +72,10 @@ export const checkout = async (items, discountCode = null) => {
         return data;
     } catch (error) {
         console.error('Error during checkout:', error);
+        console.error('API_BASE_URL:', API_BASE_URL);
         return {
             success: false,
-            message: error.message || 'Failed to place order'
+            message: error.message || 'Failed to place order. Please check if the backend is running.'
         };
     }
 };
