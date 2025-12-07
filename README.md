@@ -297,6 +297,23 @@ curl http://localhost:3001/api/admin/stats
 - Proper HTTP status codes
 - Error handling middleware
 
+## Deployment
+
+This project can be deployed for free using the following services:
+
+- **Backend**: [Render.com](https://render.com) or [Railway.app](https://railway.app)
+- **Frontend**: [Vercel](https://vercel.com) or [Netlify](https://netlify.com)
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### Quick Deploy Links
+
+**Deploy Frontend to Vercel:**
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+**Deploy Backend to Render:**
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
+
 ## Future Enhancements
 
 - [ ] Persistent database (PostgreSQL/MongoDB)
